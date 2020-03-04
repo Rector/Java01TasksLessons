@@ -22,15 +22,15 @@ public class animalActions {
 
         for (Animal a : listAnimals) {
             if (a instanceof Cat) {
-                ((Cat) a).run(200);
-                ((Cat) a).swim(0);
-                ((Cat) a).jump(2.0);
+                a.run(200);
+                a.swim(0);
+                a.jump(2.0);
                 System.out.println();
             }
             if (a instanceof Dog) {
-                ((Dog) a).run(500);
-                ((Dog) a).swim(10);
-                ((Dog) a).jump(0.5);
+                a.run(500);
+                a.swim(10);
+                a.jump(0.5);
                 System.out.println();
             }
 

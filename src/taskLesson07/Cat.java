@@ -20,7 +20,7 @@ public class Cat {
     }
 
     public void catCondition(){
-        System.out.printf("Name Cat: %-10s Appetite: %-7d Satiety: %-7s%n", name, appetite, satiety);
+        System.out.printf("Name Cat: %-10s Appetite: %-7d Satiety: %-7b%n", name, appetite, satiety);
     }
 
 }

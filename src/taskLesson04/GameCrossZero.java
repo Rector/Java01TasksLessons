@@ -143,16 +143,16 @@ public class GameCrossZero {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 if (map[i][j] == symbol) {
-                    if (checkLineX(i, j, symbol) == true) {
+                    if (checkLineX(i, j, symbol)) {
                         return true;
                     }
-                    if (checkLineY(i, j, symbol) == true) {
+                    if (checkLineY(i, j, symbol)) {
                         return true;
                     }
-                    if (checkDiagonal1(i, j, symbol) == true) {
+                    if (checkDiagonal1(i, j, symbol)) {
                         return true;
                     }
-                    if (checkDiagonal2(i, j, symbol) == true) {
+                    if (checkDiagonal2(i, j, symbol)) {
                         return true;
                     }
                 }

@@ -12,8 +12,9 @@ public class GuessGame {
             "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
 
     public static void main(String[] args) {
-        guessNumber(10, 3);
+//        guessNumber(10, 3);
         guessWord(15);
+
     }
 
 // 1. Написать программу, которая загадывает случайное число от 0 до 9,
@@ -77,7 +78,7 @@ public class GuessGame {
 
 
     public static void guessWord(int quantitySymbols) {
-        int number = rand.nextInt(words.length - 1);
+        int number = rand.nextInt(words.length);
         String answer = words[number];
         char[] printChar = new char[quantitySymbols];
         for (int i = 0; i < printChar.length; i++) {
@@ -86,7 +87,7 @@ public class GuessGame {
 
         System.out.println("Отгадайте английское слово. Ответ вводите только строчными буквами.");
         String userAnswer = sc.nextLine();
-        userAnswer = sc.nextLine();
+
         while (answer != userAnswer) {
             for (int j = 0; j < answer.length() && j < userAnswer.length(); j++) {
                 for (int k = 0; k < answer.length(); k++) {

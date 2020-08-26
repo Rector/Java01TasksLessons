@@ -4,7 +4,7 @@ public class Dog extends Animal {
     private int limitRunDog = 500;
     private double limitJumpDog = 0.5;
     private int limitSwimDog = 10;
-    static int numberDog = 0;
+    private static int numberDog = 0;
 
     public Dog(String name, String color, int age) {
         super(name, color, age);

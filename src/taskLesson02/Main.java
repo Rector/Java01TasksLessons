@@ -7,8 +7,11 @@ public class Main {
         replacementArray();
         fillingArray();
         multiplicationArray();
-        replacementDiagonal();
+        replacementDiagonal(5);
         minMaxNumber();
+        int[] arr = {2, 2, 2, 1, 2, 2};
+        checkBalance(arr);
+        shiftArr(arr, 1);
     }
 
 //    1. Задать целочисленный массив, состоящий из элементов 0 и 1.
@@ -53,12 +56,12 @@ public class Main {
 //    4. Создать квадратный двумерный целочисленный массив (количество строк и столбцов одинаковое),
 //    и с помощью цикла(-ов) заполнить его диагональные элементы единицами
 
-    public static void replacementDiagonal() {
+    public static void replacementDiagonal(int size) {
         System.out.println("Решение задачи № 4:");
-        int[][] arr2d = new int[5][5];
+        int[][] arr2d = new int[size][size];
         for (int i = 0; i < arr2d.length; i++) {
             for (int j = 0; j < arr2d[i].length; j++) {
-                if (i == j || i + j == arr2d.length - 1) {
+                if (i == j || i + j == size - 1) {
                     arr2d[i][j] = 1;
                 }
                 System.out.printf("%d\t", arr2d[i][j]);
@@ -66,6 +69,17 @@ public class Main {
             System.out.println();
         }
     }
+
+// 2 вариант
+//    public static int[][] replacementDiagonal(int size) {
+//        System.out.println("Решение задачи № 4:");
+//        int[][] arr2d = new int[size][size];
+//        for (int i = 0; i < n; i++) {
+//            arr[i][i] = 1;
+//            arr[i][n - 1 - i] = 1;
+//        }
+//        return arr2d;
+//    }
 
 //    5. ** Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета).
 
@@ -83,4 +97,48 @@ public class Main {
         }
         System.out.printf("Решение задачи № 5:\nМинимальное число массива:\t%d\nМаксимальное число массива:\t%d\n", minNumber, maxNumber);
     }
+
+
+//6. ** Написать метод, в который передается не пустой одномерный целочисленный массив,
+// метод должен вернуть true, если в массиве есть место,
+// в котором сумма левой и правой части массива равны.
+// Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true,
+// checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||,
+// эти символы в массив не входят.
+
+    public static boolean checkBalance(int[] arr) {
+        int summ = 0;
+        for (int i = 0; i < arr.length; i++) {
+            summ += arr[i];
+        }
+        if (summ % 2 != 0) {
+            return false;
+        }
+        int sumLeft = 0;
+        int i = 0;
+        while (sumLeft < summ / 2) {
+            sumLeft += arr[i];
+            i++;
+        }
+        return sumLeft == summ / 2;
+    }
+
+// 7. **** Написать метод, которому на вход подается одномерный массив
+// и число n (может быть положительным, или отрицательным),
+// при этом метод должен сместить все элементы массива на n позиций.
+// Для усложнения задачи нельзя пользоваться вспомогательными массивами.
+//
+
+    public static int[] shiftArr(int[] arr, int n) {
+        int k = n % arr.length + arr.length;
+        for (int i = 0; i < k; i++) {
+            int tmp = arr[arr.length - 1];
+            for (int j = arr.length - 1; j > 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[0] = tmp;
+        }
+        return arr;
+    }
+
 }

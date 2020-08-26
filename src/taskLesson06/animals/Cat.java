@@ -3,7 +3,7 @@ package taskLesson06.animals;
 public class Cat extends Animal {
     private int limitRunCat = 200;
     private double limitJumpCat = 2.0;
-    static int numberCat = 0;
+    private static int numberCat = 0;
 
     public Cat(String name, String color, int age) {
         super(name, color, age);
